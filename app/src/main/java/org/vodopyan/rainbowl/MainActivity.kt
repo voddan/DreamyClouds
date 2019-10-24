@@ -24,14 +24,8 @@ class MainActivity : AppCompatActivity() {
         mediaPlayer = buildLoopingPlayer(this, R.raw.rain)
 
         volumeSeekBar.setOnSeekBarChangeListener(buildVolumeBarChangeListener(mediaPlayer, volumeSeekBar))
-    }
-
-    fun startPlayer(view: View) {
-        mediaPlayer.playWhenReady = true
-    }
-
-    fun stopPlayer(view: View) {
-        mediaPlayer.playWhenReady = false
+        playButton.setOnClickListener { mediaPlayer.playWhenReady = true }
+        stopButton.setOnClickListener { mediaPlayer.playWhenReady = false }
     }
 }
 
