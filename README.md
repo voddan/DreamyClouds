@@ -8,7 +8,7 @@ We credit [Relaxio](http://www.relaxio.net/) for inspiration for this applicatio
 ## Road map
 
 - [x] 0.1: Basic Android "Hello World!" 
-- [ ] 0.2: One slider with a looped sound
+- [x] 0.2: One slider with a looped sound
 - [ ] 0.3: Several sounds mixing together (rain, wind, stream, leaves)
 - [ ] 0.4: UI tiles for sound selectors
 - [ ] 1.0: Basic functionality of Relaxio with 4 sound
