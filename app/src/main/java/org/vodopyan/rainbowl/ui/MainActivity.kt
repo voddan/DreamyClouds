@@ -1,8 +1,7 @@
-package org.vodopyan.rainbowl
+package org.vodopyan.rainbowl.ui
 
 import android.content.Context
 import android.os.Bundle
-import android.view.View
 import android.widget.SeekBar
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.exoplayer2.ExoPlayer
@@ -12,6 +11,7 @@ import com.google.android.exoplayer2.source.ProgressiveMediaSource
 import com.google.android.exoplayer2.upstream.DataSpec
 import com.google.android.exoplayer2.upstream.RawResourceDataSource
 import kotlinx.android.synthetic.main.activity_main.*
+import org.vodopyan.rainbowl.R
 
 
 class MainActivity : AppCompatActivity() {
