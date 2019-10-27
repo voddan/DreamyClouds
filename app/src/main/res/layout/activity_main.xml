@@ -16,44 +16,27 @@
         app:layout_constraintTop_toTopOf="parent"
         android:id="@+id/statusText"/>
 
-    <LinearLayout
-        android:orientation="horizontal"
+    <org.vodopyan.rainbowl.ui.PlayerControlsView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/statusText"
+        android:id="@+id/firstPlayer"/>
+
+    <TextView
+        android:text="Sound Collection"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintTop_toBottomOf="@id/statusText"
-        android:id="@+id/playStopButtons">
+        app:layout_constraintTop_toBottomOf="@id/firstPlayer"
+        android:id="@+id/soundCollectionHeader"/>
 
-        <Button
-            android:text="Play"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/playButton"/>
-
-        <Button
-            android:text="Stop"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/stopButton"/>
-    </LinearLayout>
-
-    <SeekBar
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        app:layout_constraintTop_toBottomOf="@id/playStopButtons"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:id="@+id/volumeSeekBar"/>
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/volumeSeekBar"
-        tools:listitem="@layout/player_controls"
+        app:layout_constraintTop_toBottomOf="@id/soundCollectionHeader"
+        tools:listitem="@layout/player_controls_view"
         android:id="@+id/playersList"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
