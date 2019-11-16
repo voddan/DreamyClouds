@@ -1,27 +1,31 @@
 package org.vodopyan.rainbowl.ui
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.SeekBar
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import kotlinx.android.synthetic.main.player_controls_view.view.*
 import org.vodopyan.rainbowl.R
 import org.vodopyan.rainbowl.model.PlayerState
+import org.vodopyan.rainbowl.utils.observe
 
 /**
  * Controls for an audio player
  */
-class PlayerControlsView(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
-    // todo: need lifecycle from context or separate?
+@SuppressLint("ViewConstructor")
+class PlayerControlsView<Parent>(parent: Parent, attrs: AttributeSet? = null)
+    : ConstraintLayout(parent, attrs) where Parent: Context, Parent: LifecycleOwner
+{
     val state: MutableLiveData<PlayerState> = MutableLiveData()
 
     init {
-        val view = LayoutInflater.from(context).inflate(R.layout.player_controls_view, /*root=*/this, /*attachToRoot=*/true)
+        val view = LayoutInflater.from(parent).inflate(R.layout.player_controls_view, /*root=*/this, /*attachToRoot=*/true)
 
-        // TODO: attach to the appropriate LifecycleOwner
-        state.observeForever { playerState ->
+        state.observe(parent) { playerState ->
             view.name.text = playerState.sound.name
             view.playButton.setOnClickListener { playerState.isPlaying = true }
             view.stopButton.setOnClickListener { playerState.isPlaying = false }
