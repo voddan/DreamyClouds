@@ -1,6 +1,8 @@
 package org.vodopyan.rainbowl.model
 
 import android.content.Context
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.ExoPlayerFactory
 import com.google.android.exoplayer2.source.LoopingMediaSource
@@ -9,9 +11,9 @@ import com.google.android.exoplayer2.upstream.DataSpec
 import com.google.android.exoplayer2.upstream.RawResourceDataSource
 
 class AppDataModel(val context: Context, val sounds: List<Sound>) {
-    val players: List<PlayerState> = sounds.map { sound ->
-        val player = buildLoopingPlayer(context, sound.audioResource)
-        PlayerState(sound, isPlaying = false, volume = 0.0, player = player)
+    val players: List<MutableLiveData<PlayerState>> = sounds.map { sound ->
+        val state = PlayerState(sound, isPlaying = false, volume = 0.0, context = context)
+        MutableLiveData(state)
     }
 }
 
@@ -23,32 +25,20 @@ data class Sound(
 /**
  * @param volume between 0.0 and 1.0
  * */
-class PlayerState(
+data class PlayerState(
     val sound: Sound,
-    isPlaying: Boolean,
-    volume: Double,
-    private val player: ExoPlayer
+    val isPlaying: Boolean,
+    val volume: Double,
+    private val context: Context,
+    private val player: ExoPlayer = buildLoopingPlayer(context, sound.audioResource)
 ) {
-    var isPlaying: Boolean = isPlaying
-        set(value) {
-            field = value
-            player.playWhenReady = value
-        }
-
-    var volume: Double = volume
-        set(value) {
-            field = value
-            player.audioComponent!!.volume = value.toFloat()
-        }
-
     init {
-        // invoke the setters
-        this.isPlaying = isPlaying
-        this.volume = volume
+        player.playWhenReady = isPlaying
+        player.audioComponent!!.volume = volume.toFloat()
     }
 }
 
-fun buildLoopingPlayer(context: Context, rawResourceId: Int): ExoPlayer {
+private fun buildLoopingPlayer(context: Context, rawResourceId: Int): ExoPlayer {
     val uri = RawResourceDataSource.buildRawResourceUri(rawResourceId)
     val dataSource = RawResourceDataSource(context)
     dataSource.open(DataSpec(uri))

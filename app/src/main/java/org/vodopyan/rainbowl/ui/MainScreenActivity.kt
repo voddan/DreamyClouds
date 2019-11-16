@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.activity.ComponentActivity
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.ext.android.inject
 import org.vodopyan.rainbowl.R
@@ -28,8 +30,8 @@ class MainScreenActivity : AppCompatActivity() {
 }
 
 
-class PlayersListAdapter(val activity: ComponentActivity, players: List<PlayerState>)
-    : ArrayAdapter<PlayerState>(activity, R.layout.player_controls_view, players)
+class PlayersListAdapter(val activity: ComponentActivity, players: List<MutableLiveData<PlayerState>>)
+    : ArrayAdapter<MutableLiveData<PlayerState>>(activity, R.layout.player_controls_view, players)
 {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val playerState = getItem(position) ?: throw IndexOutOfBoundsException("No item at index $position")
