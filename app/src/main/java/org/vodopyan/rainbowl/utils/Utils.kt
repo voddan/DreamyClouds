@@ -1,5 +1,3 @@
-@file:Suppress("PackageDirectoryMismatch")
-
 package org.vodopyan.rainbowl.utils
 
 import androidx.lifecycle.LifecycleOwner

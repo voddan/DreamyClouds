@@ -19,6 +19,6 @@ We credit [Relaxio](http://www.relaxio.net/) for inspiration for this applicatio
 
 ## Known Issues
 
-- [ ] Volume sliders do not react on volume changes
-- [ ] Volume sliders are reset on an orientation change
-- [ ] Sounds stop playing on an orientation change
+- [x] Volume sliders do not react on volume changes
+- [x] Volume sliders are reset on an orientation change
+- [x] Sounds stop playing on an orientation change

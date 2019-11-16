@@ -4,14 +4,16 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.widget.SeekBar
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import kotlinx.android.synthetic.main.player_controls_view.view.*
 import org.vodopyan.rainbowl.R
 import org.vodopyan.rainbowl.model.PlayerState
+import org.vodopyan.rainbowl.utils.normalProgress
 import org.vodopyan.rainbowl.utils.observe
+import org.vodopyan.rainbowl.utils.setNormalProgress
+import org.vodopyan.rainbowl.utils.setOnSeekBarChangeListener
 
 /**
  * Controls for an audio player
@@ -27,31 +29,14 @@ class PlayerControlsView<Parent>(parent: Parent, attrs: AttributeSet? = null)
 
         state.observe(parent) { playerState ->
             view.name.text = playerState.sound.name
-            view.playButton.setOnClickListener { playerState.isPlaying = true }
-            view.stopButton.setOnClickListener { playerState.isPlaying = false }
 
-            // TODO: make UI react on state changes
-            view.volumeSeekBar.setOnSeekBarChangeListener(buildVolumeBarChangeListener(playerState, view.volumeSeekBar))
+            playerState.volume.observe(parent) { volume ->
+                view.volumeSeekBar.setNormalProgress(volume)
+            }
+
+            view.playButton.setOnClickListener { playerState.isPlaying.value = true }
+            view.stopButton.setOnClickListener { playerState.isPlaying.value = false }
+            view.volumeSeekBar.setOnSeekBarChangeListener { seekBar -> playerState.volume.value = seekBar.normalProgress() }
         }
-    }
-}
-
-
-fun buildVolumeBarChangeListener(mediaPlayer: PlayerState, volumeBar: SeekBar): SeekBar.OnSeekBarChangeListener {
-    fun SeekBar.normalProgress() = (progress - min) * 1.0 / (max - min)
-
-    mediaPlayer.volume = volumeBar.normalProgress()
-
-    return object : SeekBar.OnSeekBarChangeListener {
-        private val mediaPlayer = mediaPlayer
-        private val volumeBar = volumeBar
-
-        override fun onProgressChanged(seekBar: SeekBar, position: Int, fromUser: Boolean) {
-            assert(seekBar == volumeBar) { "Cannot apply change from a different volume bar" }
-            mediaPlayer.volume = volumeBar.normalProgress()
-        }
-
-        override fun onStartTrackingTouch(seekBar: SeekBar) {}
-        override fun onStopTrackingTouch(seekBar: SeekBar) {}
     }
 }

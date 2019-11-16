@@ -1,6 +1,7 @@
 package org.vodopyan.rainbowl.model
 
 import android.content.Context
+import androidx.lifecycle.MutableLiveData
 import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.ExoPlayerFactory
 import com.google.android.exoplayer2.source.LoopingMediaSource
@@ -29,26 +30,16 @@ class PlayerState(
     volume: Double,
     private val player: ExoPlayer
 ) {
-    var isPlaying: Boolean = isPlaying
-        set(value) {
-            field = value
-            player.playWhenReady = value
-        }
-
-    var volume: Double = volume
-        set(value) {
-            field = value
-            player.audioComponent!!.volume = value.toFloat()
-        }
+    val isPlaying: MutableLiveData<Boolean> = MutableLiveData(isPlaying)
+    val volume: MutableLiveData<Double> = MutableLiveData(volume)
 
     init {
-        // invoke the setters
-        this.isPlaying = isPlaying
-        this.volume = volume
+        this.isPlaying.observeForever { value -> player.playWhenReady = value }
+        this.volume.observeForever { value -> player.audioComponent!!.volume = value.toFloat() }
     }
 }
 
-fun buildLoopingPlayer(context: Context, rawResourceId: Int): ExoPlayer {
+private fun buildLoopingPlayer(context: Context, rawResourceId: Int): ExoPlayer {
     val uri = RawResourceDataSource.buildRawResourceUri(rawResourceId)
     val dataSource = RawResourceDataSource(context)
     dataSource.open(DataSpec(uri))
