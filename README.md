@@ -16,3 +16,9 @@ We credit [Relaxio](http://www.relaxio.net/) for inspiration for this applicatio
 - [ ] 1.2: Independently animated pictograms
 - [ ] 1.3: Transparency shift on turning sounds on/off
 - [ ] 1.4: Combined animations that take into account combinations of sound
+
+## Known Issues
+
+- [ ] Volume sliders do not react on volume changes
+- [ ] Volume sliders are reset on an orientation change
+- [ ] Sounds stop playing on an orientation change
