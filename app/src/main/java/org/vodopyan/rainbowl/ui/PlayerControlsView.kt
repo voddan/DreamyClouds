@@ -29,6 +29,8 @@ class PlayerControlsView<Parent>(parent: Parent, attrs: AttributeSet? = null)
 
         state.observe(parent) { playerState ->
             view.name.text = playerState.sound.name
+            val pictogram = resources.getDrawable(playerState.sound.drawableResource, null)
+            view.backgroundPictogram.setImageDrawable(pictogram)
 
             playerState.volume.observe(parent) { volume ->
                 view.volumeSeekBar.setNormalProgress(volume)
