@@ -47,8 +47,7 @@ class PlayerState(
 
     fun play() {
         when(_state.value) {
-            State.Stopped -> _state.value = State.Playing
-            State.Paused -> {
+            State.Stopped, State.Paused -> {
                 _state.value = State.Playing
                 resumeAllOtherPlayers()
             }

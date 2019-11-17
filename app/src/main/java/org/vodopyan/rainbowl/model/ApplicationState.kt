@@ -17,7 +17,7 @@ class AppDataModel(val context: Context, val sounds: List<Sound>) {
             )
         }
 
-    private val _allCanPlay = MutableLiveData<Boolean>(true)
+    private val _allCanPlay = MutableLiveData(false)
     val allCanPlay: LiveData<Boolean> = _allCanPlay
 
     fun pauseAll() {
