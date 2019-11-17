@@ -3,6 +3,7 @@ package org.vodopyan.rainbowl.utils
 import android.content.Context
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.Observer
 import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.ExoPlayerFactory
@@ -27,4 +28,12 @@ fun buildLoopingPlayer(context: Context, rawResourceId: Int): ExoPlayer {
     player.prepare(loopingAudio)
 
     return player
+}
+
+
+fun <T> MediatorLiveData(vararg liveDatas: LiveData<T>): MediatorLiveData<T> {
+    val result = MediatorLiveData<T>()
+    for(liveData in liveDatas)
+        result.addSource(liveData, result::setValue)
+    return result
 }
