@@ -14,7 +14,7 @@ import com.google.android.exoplayer2.ExoPlayer
  * @param player must be a looping player playing [Sound.audioResource].
  *              Use [buildLoopingPlayer] to build a looping player.
  * */
-class PlayerState(
+class SoundPlayer(
     val sound: Sound,
     state: State,
     volume: Double,

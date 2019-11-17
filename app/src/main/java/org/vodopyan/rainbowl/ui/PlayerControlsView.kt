@@ -9,7 +9,7 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import kotlinx.android.synthetic.main.player_controls_view.view.*
 import org.vodopyan.rainbowl.R
-import org.vodopyan.rainbowl.model.PlayerState
+import org.vodopyan.rainbowl.model.SoundPlayer
 import org.vodopyan.rainbowl.utils.normalProgress
 import org.vodopyan.rainbowl.utils.observe
 import org.vodopyan.rainbowl.utils.setNormalProgress
@@ -22,7 +22,7 @@ import org.vodopyan.rainbowl.utils.setOnSeekBarChangeListener
 class PlayerControlsView<Parent>(parent: Parent, attrs: AttributeSet? = null)
     : ConstraintLayout(parent, attrs) where Parent: Context, Parent: LifecycleOwner
 {
-    val state: MutableLiveData<PlayerState> = MutableLiveData()
+    val state: MutableLiveData<SoundPlayer> = MutableLiveData()
 
     init {
         val view = LayoutInflater.from(parent).inflate(R.layout.player_controls_view, /*root=*/this, /*attachToRoot=*/true)

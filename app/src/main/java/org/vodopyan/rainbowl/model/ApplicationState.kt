@@ -6,11 +6,11 @@ import androidx.lifecycle.MutableLiveData
 import org.vodopyan.rainbowl.utils.buildLoopingPlayer
 
 class AppDataModel(val context: Context, val sounds: List<Sound>) {
-    val players: List<PlayerState> =
+    val players: List<SoundPlayer> =
         sounds.map { sound ->
             val player = buildLoopingPlayer(context, sound.audioResource)
-            PlayerState(sound,
-                state = PlayerState.State.Stopped,
+            SoundPlayer(sound,
+                state = SoundPlayer.State.Stopped,
                 volume = 0.0,
                 player = player,
                 resumeAllOtherPlayers = this::resumeAll

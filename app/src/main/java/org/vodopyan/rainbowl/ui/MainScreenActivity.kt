@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.ext.android.inject
 import org.vodopyan.rainbowl.R
 import org.vodopyan.rainbowl.model.AppDataModel
-import org.vodopyan.rainbowl.model.PlayerState
+import org.vodopyan.rainbowl.model.SoundPlayer
 
 
 class MainScreenActivity : AppCompatActivity() {
@@ -32,8 +32,8 @@ class MainScreenActivity : AppCompatActivity() {
 }
 
 
-class PlayersListAdapter(val activity: ComponentActivity, players: List<PlayerState>)
-    : ArrayAdapter<PlayerState>(activity, R.layout.player_controls_view, players)
+class PlayersListAdapter(val activity: ComponentActivity, players: List<SoundPlayer>)
+    : ArrayAdapter<SoundPlayer>(activity, R.layout.player_controls_view, players)
 {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val playerState = getItem(position) ?: throw IndexOutOfBoundsException("No item at index $position")
