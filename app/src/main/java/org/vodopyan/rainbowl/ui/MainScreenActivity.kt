@@ -24,6 +24,8 @@ class MainScreenActivity : AppCompatActivity() {
         firstPlayer.state.value = firstPlayerState
 
         playersList.adapter = PlayersListAdapter(this, dataModel.players)
+
+        globalPlayPause.state.value = dataModel.isPlaying
     }
 }
 

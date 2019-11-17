@@ -14,6 +14,8 @@ class AppDataModel(val context: Context, val sounds: List<Sound>) {
         val player = buildLoopingPlayer(context, sound.audioResource)
         PlayerState(sound, isPlaying = false, volume = 0.0, player = player)
     }
+
+    val isPlaying: MutableLiveData<Boolean> = MutableLiveData(true)
 }
 
 data class Sound(
