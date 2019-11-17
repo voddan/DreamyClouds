@@ -34,8 +34,8 @@ class PlayerControlsView<Parent>(parent: Parent, attrs: AttributeSet? = null)
                 view.volumeSeekBar.setNormalProgress(volume)
             }
 
-            view.playButton.setOnClickListener { playerState.isPlaying.value = true }
-            view.stopButton.setOnClickListener { playerState.isPlaying.value = false }
+            view.playButton.setOnClickListener { playerState.play() }
+            view.stopButton.setOnClickListener { playerState.stop() }
             view.volumeSeekBar.setOnSeekBarChangeListener { seekBar -> playerState.volume.value = seekBar.normalProgress() }
         }
     }
