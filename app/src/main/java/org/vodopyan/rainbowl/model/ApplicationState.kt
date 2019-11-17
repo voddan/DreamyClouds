@@ -17,16 +17,16 @@ class AppDataModel(val context: Context, val sounds: List<Sound>) {
             )
         }
 
-    private val _allCanPlay = MutableLiveData(false)
-    val allCanPlay: LiveData<Boolean> = _allCanPlay
+    private val mutAllCanPlay = MutableLiveData(false)
+    val allCanPlay: LiveData<Boolean> = mutAllCanPlay
 
     fun pauseAll() {
-        _allCanPlay.value = false
+        mutAllCanPlay.value = false
         players.forEach { it.pause() }
     }
 
     fun resumeAll() {
-        _allCanPlay.value = true
+        mutAllCanPlay.value = true
         players.forEach { it.resume() }
     }
 }

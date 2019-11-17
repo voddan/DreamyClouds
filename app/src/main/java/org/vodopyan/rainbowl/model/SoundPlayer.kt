@@ -23,8 +23,8 @@ class SoundPlayer(
 ) {
     enum class State { Playing, Stopped, Paused }
 
-    private val _state = MutableLiveData(state)
-    val state: LiveData<State> = _state
+    private val mutState = MutableLiveData(state)
+    val state: LiveData<State> = mutState
 
     val volume: MutableLiveData<Double> = MutableLiveData(volume)
 
@@ -34,29 +34,29 @@ class SoundPlayer(
     }
 
     fun pause() {
-        when(_state.value) {
-            State.Playing -> _state.value = State.Paused
+        when(state.value) {
+            State.Playing -> mutState.value = State.Paused
         }
     }
 
     fun resume() {
-        when(_state.value) {
-            State.Paused -> _state.value = State.Playing
+        when(state.value) {
+            State.Paused -> mutState.value = State.Playing
         }
     }
 
     fun play() {
-        when(_state.value) {
+        when(state.value) {
             State.Stopped, State.Paused -> {
-                _state.value = State.Playing
+                mutState.value = State.Playing
                 resumeAllOtherPlayers()
             }
         }
     }
 
     fun stop() {
-        when(_state.value) {
-            State.Playing -> _state.value = State.Stopped
+        when(state.value) {
+            State.Playing -> mutState.value = State.Stopped
         }
     }
 }
