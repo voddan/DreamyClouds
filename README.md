@@ -10,7 +10,7 @@ We credit [Relaxio](http://www.relaxio.net/) for inspiration for this applicatio
 - [x] 0.1: Basic Android "Hello World!" 
 - [x] 0.2: One slider with a looped sound
 - [x] 0.3: Several sounds mixing together (rain, wind, stream, birds)
-- [ ] 0.4: Global play/pause button working for all sounds
+- [x] 0.4: Global play/pause button working for all sounds
 - [ ] 0.5: UI tiles for sound selectors
 - [ ] 1.0: Basic functionality of Relaxio with 4 sound
 - [ ] 1.1: Weather pictograms showed for the selected sounds 
