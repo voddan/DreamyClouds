@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="rain_background">#9D8FB8</color>
+    <color name="bird_background">#CDCEDA5F</color>
+    <color name="stream_background">#3F51B5</color>
+    <color name="wind_background">#C993BCCE</color>
+</resources>

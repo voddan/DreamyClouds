@@ -6,5 +6,6 @@ package org.vodopyan.rainbowl.model
 data class Sound(
     val name: String,
     val audioResource: Int,
-    val drawableResource: Int
+    val drawableResource: Int,
+    val backgroundColor: Int
 )

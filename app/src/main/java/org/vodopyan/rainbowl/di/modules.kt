@@ -11,10 +11,10 @@ val appModule = module {
         AppDataModel(
             context = get(),
             sounds = listOf(
-                Sound("rain", R.raw.rain, R.drawable.rain),
-                Sound("wind", R.raw.wind, R.drawable.wind_leaves),
-                Sound("stream", R.raw.stream, R.drawable.stream),
-                Sound("bird", R.raw.bird, R.drawable.bird)
+                Sound("rain", R.raw.rain, R.drawable.rain, R.color.rain_background),
+                Sound("wind", R.raw.wind, R.drawable.wind_leaves, R.color.wind_background),
+                Sound("stream", R.raw.stream, R.drawable.stream, R.color.stream_background),
+                Sound("bird", R.raw.bird, R.drawable.bird, R.color.bird_background)
             )
         )
     }
