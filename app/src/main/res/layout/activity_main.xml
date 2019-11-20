@@ -17,8 +17,9 @@
         android:id="@+id/statusText"/>
 
     <org.vodopyan.rainbowl.ui.PlayerControlsView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/statusText"
         android:id="@+id/firstPlayer"/>
 
