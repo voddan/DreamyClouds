@@ -59,4 +59,11 @@ class SoundPlayer(
             State.Playing -> mutState.value = State.Stopped
         }
     }
+
+    fun togglePlayStop() {
+        when(state.value) {
+            State.Stopped, State.Paused -> play()
+            State.Playing -> stop()
+        }
+    }
 }
