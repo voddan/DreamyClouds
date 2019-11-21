@@ -1,25 +1,23 @@
 package org.vodopyan.rainbowl.ui
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import kotlinx.android.synthetic.main.play_pause_button_view.view.*
 import org.vodopyan.rainbowl.R
 import org.vodopyan.rainbowl.utils.MediatorLiveData
 import org.vodopyan.rainbowl.utils.observe
+import org.vodopyan.rainbowl.utils.parentLifecycle
 
 /**
  * Controls for an audio player
  */
-@SuppressLint("ViewConstructor")
-class PlayPauseButtonView<Parent>(parent: Parent, attrs: AttributeSet? = null)
-    : ConstraintLayout(parent, attrs) where Parent: Context, Parent: LifecycleOwner
-{
+class PlayPauseButtonView(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
+    private val parent = parentLifecycle(context)
+
     val state: MutableLiveData<LiveData<Boolean>> = MutableLiveData()
     val playCallback: MutableLiveData<() -> Unit> = MutableLiveData()
     val pauseCallback: MutableLiveData<() -> Unit> = MutableLiveData()
@@ -30,7 +28,7 @@ class PlayPauseButtonView<Parent>(parent: Parent, attrs: AttributeSet? = null)
     private val pauseIcon = resources.getDrawable(R.drawable.ic_pause_black_24dp, null)
 
     init {
-        val view = LayoutInflater.from(parent).inflate(R.layout.play_pause_button_view, /*root=*/this, /*attachToRoot=*/true)
+        val view = LayoutInflater.from(context).inflate(R.layout.play_pause_button_view, /*root=*/this, /*attachToRoot=*/true)
 
         state.observe(parent) { isPlayingState ->
             isPlayingState.observe(parent) { isPlaying ->
