@@ -24,9 +24,9 @@ class MainScreenActivity : AppCompatActivity() {
 
         playersList.adapter = PlayersListAdapter(this, dataModel.players)
 
-        globalPlayPause.state.value = dataModel.allCanPlay
-        globalPlayPause.playCallback.value = dataModel::resumeAll
-        globalPlayPause.pauseCallback.value = dataModel::pauseAll
+        globalPlayPauseButton.state.value = dataModel.allCanPlay
+        globalPlayPauseButton.playCallback.value = dataModel::resumeAll
+        globalPlayPauseButton.pauseCallback.value = dataModel::pauseAll
     }
 }
 
