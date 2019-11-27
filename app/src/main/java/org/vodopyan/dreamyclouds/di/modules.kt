@@ -1,9 +1,9 @@
-package org.vodopyan.rainbowl.di
+package org.vodopyan.dreamyclouds.di
 
 import org.koin.dsl.module
-import org.vodopyan.rainbowl.R
-import org.vodopyan.rainbowl.model.AppDataModel
-import org.vodopyan.rainbowl.model.Sound
+import org.vodopyan.dreamyclouds.R
+import org.vodopyan.dreamyclouds.model.AppDataModel
+import org.vodopyan.dreamyclouds.model.Sound
 
 
 val appModule = module {

@@ -1,9 +1,9 @@
-package org.vodopyan.rainbowl
+package org.vodopyan.dreamyclouds
 
 import android.app.Application
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
-import org.vodopyan.rainbowl.di.appModule
+import org.vodopyan.dreamyclouds.di.appModule
 
 class MainApplication : Application(){
     override fun onCreate() {

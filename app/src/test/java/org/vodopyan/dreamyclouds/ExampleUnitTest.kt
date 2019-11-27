@@ -1,4 +1,4 @@
-package org.vodopyan.rainbowl
+package org.vodopyan.dreamyclouds
 
 import org.junit.Test
 

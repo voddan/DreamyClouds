@@ -1,4 +1,4 @@
-package org.vodopyan.rainbowl.ui
+package org.vodopyan.dreamyclouds.ui
 
 import android.content.Context
 import android.util.AttributeSet
@@ -7,10 +7,10 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import kotlinx.android.synthetic.main.play_pause_button_view.view.*
-import org.vodopyan.rainbowl.R
-import org.vodopyan.rainbowl.utils.MediatorLiveData
-import org.vodopyan.rainbowl.utils.observe
-import org.vodopyan.rainbowl.utils.parentLifecycle
+import org.vodopyan.dreamyclouds.R
+import org.vodopyan.dreamyclouds.utils.MediatorLiveData
+import org.vodopyan.dreamyclouds.utils.observe
+import org.vodopyan.dreamyclouds.utils.parentLifecycle
 
 /**
  * Controls for an audio player

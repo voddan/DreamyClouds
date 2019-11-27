@@ -1,6 +1,6 @@
 @file:Suppress("NON_EXHAUSTIVE_WHEN")
 
-package org.vodopyan.rainbowl.model
+package org.vodopyan.dreamyclouds.model
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

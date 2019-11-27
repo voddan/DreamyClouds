@@ -1,7 +1,6 @@
-# RainBowl App
+# Dreamy Clouds App
 
-A sound mixer for Android.
-Mix sounds of nature to create a perfect relaxing atmosphere.
+Mixes sounds of nature to create a perfect relaxing atmosphere.
 
 We credit [Relaxio](http://www.relaxio.net/) for inspiration for this application.
 

@@ -1,4 +1,4 @@
-package org.vodopyan.rainbowl.ui
+package org.vodopyan.dreamyclouds.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,13 +10,13 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.players_2_column_item.view.*
 import org.koin.android.ext.android.inject
-import org.vodopyan.rainbowl.R
-import org.vodopyan.rainbowl.model.AppDataModel
-import org.vodopyan.rainbowl.model.DeviceVolumeController
-import org.vodopyan.rainbowl.model.SoundPlayer
-import org.vodopyan.rainbowl.utils.normalProgress
-import org.vodopyan.rainbowl.utils.setNormalProgress
-import org.vodopyan.rainbowl.utils.setOnSeekBarChangeListener
+import org.vodopyan.dreamyclouds.R
+import org.vodopyan.dreamyclouds.model.AppDataModel
+import org.vodopyan.dreamyclouds.model.DeviceVolumeController
+import org.vodopyan.dreamyclouds.model.SoundPlayer
+import org.vodopyan.dreamyclouds.utils.normalProgress
+import org.vodopyan.dreamyclouds.utils.setNormalProgress
+import org.vodopyan.dreamyclouds.utils.setOnSeekBarChangeListener
 
 
 class MainScreenActivity : AppCompatActivity() {

@@ -1,4 +1,4 @@
-package org.vodopyan.rainbowl.model
+package org.vodopyan.dreamyclouds.model
 
 /**
  * Immutable data that represents all information about a sound.

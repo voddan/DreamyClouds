@@ -1,4 +1,4 @@
-package org.vodopyan.rainbowl.model
+package org.vodopyan.dreamyclouds.model
 
 import android.content.Context
 import android.database.ContentObserver

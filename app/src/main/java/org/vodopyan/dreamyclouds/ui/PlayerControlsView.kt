@@ -1,4 +1,4 @@
-package org.vodopyan.rainbowl.ui
+package org.vodopyan.dreamyclouds.ui
 
 import android.content.Context
 import android.util.AttributeSet
@@ -8,9 +8,9 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
 import androidx.lifecycle.MutableLiveData
 import kotlinx.android.synthetic.main.player_controls_view.view.*
-import org.vodopyan.rainbowl.R
-import org.vodopyan.rainbowl.model.SoundPlayer
-import org.vodopyan.rainbowl.utils.*
+import org.vodopyan.dreamyclouds.R
+import org.vodopyan.dreamyclouds.model.SoundPlayer
+import org.vodopyan.dreamyclouds.utils.*
 
 /**
  * Controls for an audio player.

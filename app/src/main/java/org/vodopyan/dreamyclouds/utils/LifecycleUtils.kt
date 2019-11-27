@@ -1,4 +1,4 @@
-package org.vodopyan.rainbowl.utils
+package org.vodopyan.dreamyclouds.utils
 
 import android.content.Context
 import android.view.View

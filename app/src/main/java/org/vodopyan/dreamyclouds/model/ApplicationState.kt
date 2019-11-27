@@ -1,9 +1,9 @@
-package org.vodopyan.rainbowl.model
+package org.vodopyan.dreamyclouds.model
 
 import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import org.vodopyan.rainbowl.utils.buildLoopingPlayer
+import org.vodopyan.dreamyclouds.utils.buildLoopingPlayer
 
 class AppDataModel(val context: Context, val sounds: List<Sound>) {
     val players: List<SoundPlayer> =
