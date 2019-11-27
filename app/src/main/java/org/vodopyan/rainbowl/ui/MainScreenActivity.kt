@@ -12,11 +12,18 @@ import kotlinx.android.synthetic.main.players_2_column_item.view.*
 import org.koin.android.ext.android.inject
 import org.vodopyan.rainbowl.R
 import org.vodopyan.rainbowl.model.AppDataModel
+import org.vodopyan.rainbowl.model.DeviceVolumeController
 import org.vodopyan.rainbowl.model.SoundPlayer
+import org.vodopyan.rainbowl.utils.normalProgress
+import org.vodopyan.rainbowl.utils.setNormalProgress
+import org.vodopyan.rainbowl.utils.setOnSeekBarChangeListener
 
 
 class MainScreenActivity : AppCompatActivity() {
     val dataModel by inject<AppDataModel>()
+
+    // TODO: make deviceVolume lifecycle-aware
+    val deviceVolume by lazy{ DeviceVolumeController(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +34,10 @@ class MainScreenActivity : AppCompatActivity() {
         globalPlayPauseButton.state.value = dataModel.allCanPlay
         globalPlayPauseButton.playCallback.value = dataModel::resumeAll
         globalPlayPauseButton.pauseCallback.value = dataModel::pauseAll
+
+        deviceVolume.volumeChangeCallback = { volume -> globalVolumeBar.setNormalProgress(volume) }
+        globalVolumeBar.setNormalProgress(deviceVolume.getDeviceVolume())
+        globalVolumeBar.setOnSeekBarChangeListener { volumeBar -> deviceVolume.setDeviceVolume(volumeBar.normalProgress()) }
     }
 }
 
