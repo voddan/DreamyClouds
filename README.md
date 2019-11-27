@@ -24,3 +24,5 @@ We credit [Relaxio](http://www.relaxio.net/) for inspiration for this applicatio
 - [x] Volume sliders are reset on an orientation change
 - [x] Sounds stop playing on an orientation change
 - [ ] When changing device volume the on-screen volume bar reacts with a lag
+- [ ] Playback does not react to hardware play-pause buttons
+- [ ] Sounds that have their controls on to of each other are synchronized 
